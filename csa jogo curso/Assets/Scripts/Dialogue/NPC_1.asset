@@ -17,8 +17,20 @@ MonoBehaviour:
   sentence: 
   dialogues:
   - actorName: 
-    profile: {fileID: 2203037612859406267, guid: b01159804d23276428b22023e11ffdec, type: 3}
+    profile: {fileID: 0}
     sentence:
-      portuguese: "Ol\xE1, Como esta?"
-      english: 
-      spanish: 
+      portuguese: "Ol\xE1 forasteirio"
+      english: hello outsider
+      spanish: hola forastero
+  - actorName: 
+    profile: {fileID: 0}
+    sentence:
+      portuguese: "Como voc\xEA est\xE1?"
+      english: How are you?
+      spanish: "\xBFC\xF3mo est\xE1s?"
+  - actorName: 
+    profile: {fileID: 0}
+    sentence:
+      portuguese: "Se precisa de informa\xE7\xE3o, v\xE1 at\xE9 o lago"
+      english: If you need information, go to the lake
+      spanish: "Si necesitas informaci\xF3n, ve al lago."

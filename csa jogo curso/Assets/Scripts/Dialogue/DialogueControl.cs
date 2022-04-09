@@ -5,6 +5,16 @@ using UnityEngine.UI;
 
 public class DialogueControl : MonoBehaviour
 {
+    [System.Serializable]
+    public enum idiom
+    {
+        pt,
+        eng,
+        spa
+    }
+
+    public idiom language;
+
     [Header("Components")]
     public GameObject dialogueObj;
     public Image profileSprite;
@@ -26,17 +36,6 @@ public class DialogueControl : MonoBehaviour
         instance = this;
     }
 
-    void Start()
-    {
-        
-    }
-
-
-    void Update()
-    {
-        
-    }
-
     //Coroutine
     IEnumerator TypeSentence()
     {
@@ -49,7 +48,23 @@ public class DialogueControl : MonoBehaviour
 
     public void NextSentence()
     {
-
+        if (speechText.text == sentences[index])
+        {
+            if (index < sentences.Length - 1)
+            {
+                index++;
+                speechText.text = "";
+                StartCoroutine(TypeSentence());
+            }
+            else //quando finaliza os textos
+            {
+                speechText.text = "";
+                index = 0;
+                dialogueObj.SetActive(false);
+                sentences = null;
+                isShowing = false;
+            }
+        }
     }
 
     public void Speech(string[] txt)
