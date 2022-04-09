@@ -38,7 +38,7 @@ AnimationClip:
     - time: 0.6666667
       value: {fileID: 1727022864612719175, guid: b01159804d23276428b22023e11ffdec, type: 3}
     attribute: m_Sprite
-    path: Body
+    path: 
     classID: 212
     script: {fileID: 0}
   - curve:
@@ -72,7 +72,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 2073732236
+      path: 0
       attribute: 0
       script: {fileID: 0}
       typeID: 212

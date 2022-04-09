@@ -12,7 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e676dfcef0a57c4ba7f7d5fb4a7ef09, type: 3}
   m_Name: NPC_1
   m_EditorClassIdentifier: 
-  actor: {fileID: 0}
+  actor: {fileID: 2919613691758418161, guid: fd32aa3414029734c9ec850f8a46d3f4, type: 3}
   speakerSprite: {fileID: 0}
   sentence: 
-  dialogues: []
+  dialogues:
+  - actorName: 
+    profile: {fileID: 2203037612859406267, guid: b01159804d23276428b22023e11ffdec, type: 3}
+    sentence:
+      portuguese: "Ol\xE1, Como esta?"
+      english: 
+      spanish: 
