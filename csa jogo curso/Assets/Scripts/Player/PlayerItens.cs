@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerItens : MonoBehaviour
 {
     public int totalWood;
+    public int carrots;
+
     public float currentWater;
     private float waterLimit = 50;
 
