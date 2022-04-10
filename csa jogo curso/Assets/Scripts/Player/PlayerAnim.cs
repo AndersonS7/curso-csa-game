@@ -48,9 +48,19 @@ public class PlayerAnim : MonoBehaviour
             transform.eulerAngles = new Vector2(0, 180);
         }
 
-        if (player.IsCutting)
+        if (player.isCutting)
         {
             anim.SetInteger("transition", 3);
+        }
+
+        if (player.isDigging)
+        {
+            anim.SetInteger("transition", 4);
+        }
+
+        if (player.isWatering)
+        {
+            anim.SetInteger("transition", 5);
         }
     }
     void OnRun()
