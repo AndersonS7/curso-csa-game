@@ -198,6 +198,78 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 45266395}
   m_CullTransparentMesh: 1
+--- !u!1 &126377822
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 126377824}
+  - component: {fileID: 126377823}
+  - component: {fileID: 126377825}
+  m_Layer: 0
+  m_Name: Casting
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &126377823
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126377822}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.7616081, y: 1.2657762}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 8.784227, y: 1.2325029}
+  m_EdgeRadius: 0
+--- !u!4 &126377824
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126377822}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 11.78, y: 7.67, z: -1.4886628}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &126377825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126377822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a35769542771134db0a5bccc6388d84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  percentage: 80
+  fishPrefab: {fileID: 8255032240231336248, guid: b6ca11a3bc39f164b8b93727afa4f9b9, type: 3}
 --- !u!1 &129186675
 GameObject:
   m_ObjectHideFlags: 0
@@ -327,7 +399,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 129186675}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.44, y: -8.39, z: 0}
+  m_LocalPosition: {x: 9.78, y: 10.49, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1032936712}
@@ -348,6 +420,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63a685ca70485b34682a592fd22d66c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPaused: 0
   speed: 3
   runSpeed: 5
   handlingObj: 0
@@ -397,9 +470,11 @@ MonoBehaviour:
   totalWood: 0
   carrots: 0
   currentWater: 0
-  waterLimit: 50
-  carrotsLimit: 50
-  woodLimit: 50
+  fishes: 0
+  waterLimit: 20
+  carrotsLimit: 5
+  woodLimit: 2
+  fishesLimit: 3
 --- !u!1 &179080506
 GameObject:
   m_ObjectHideFlags: 0
@@ -4249,7 +4324,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.44, y: -8.39, z: -10}
+  m_LocalPosition: {x: 9.78, y: 10.49, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -41986,7 +42061,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1481738003}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.44, y: -8.39, z: -10}
+  m_LocalPosition: {x: 9.78, y: 10.49, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1624401544}
@@ -43234,6 +43309,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 813969583, guid: 246f2f0a50c685f4ea67ed71fee18ade, type: 3}
+      propertyPath: treeHealth
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5833875365817313126, guid: 246f2f0a50c685f4ea67ed71fee18ade, type: 3}
       propertyPath: m_RootOrder
       value: 10
