@@ -15,7 +15,7 @@ public class Tree : MonoBehaviour
 
     private void Start()
     {
-        totalWood = Random.Range(1, 3);
+        totalWood = 3;
     }
 
     public void OnHit()

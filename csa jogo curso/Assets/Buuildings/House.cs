@@ -4,16 +4,21 @@ using UnityEngine;
 
 public class House : MonoBehaviour
 {
+    [Header("Amounts")]
+    [SerializeField] private Color startColor;
+    [SerializeField] private Color endColor;
+    [SerializeField] private float timeAmount;
+    [SerializeField] private int woodAmount;
+
+    [Header("Components")]
     [SerializeField] private GameObject houseColl;
     [SerializeField] private SpriteRenderer houseSprite;
     [SerializeField] private Transform point;
-    [SerializeField] private Color startColor;
-    [SerializeField] private Color endColor;
-    [SerializeField] private float  timeAmount;
-
+    
     private bool detectingPlayer;
     private Player player;
     private PlayerAnim playerAnim;
+    private PlayerItens playerIntems;
 
     private float timeCount;
     private bool isBigining;
@@ -23,18 +28,21 @@ public class House : MonoBehaviour
     {
         player = FindObjectOfType<Player>();
         playerAnim = player.GetComponent<PlayerAnim>();
+        playerIntems = player.GetComponent<PlayerItens>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (detectingPlayer && Input.GetKeyDown(KeyCode.E))
+        if (detectingPlayer && Input.GetKeyDown(KeyCode.E) && playerIntems.totalWood >= woodAmount)
         {
+            //construção inicializada
             isBigining = true;
             playerAnim.OnHammeringStarted();
             houseSprite.color = startColor;
             player.transform.position = point.position;
             player.isPaused = true;
+            playerIntems.totalWood -= woodAmount;
         }
 
         if (isBigining)
