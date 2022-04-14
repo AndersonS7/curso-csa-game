@@ -9,6 +9,10 @@ public class PlayerAnim : MonoBehaviour
 
     private Casting cast;
 
+    private bool isHitting;
+    private float recoveryTime = 1f;
+    private float timeCount;
+
     void Start()
     {
         player = GetComponent<Player>();
@@ -21,6 +25,17 @@ public class PlayerAnim : MonoBehaviour
     {
         OnMove();
         OnRun();
+
+        if (isHitting)
+        {
+            timeCount += Time.deltaTime;
+
+            if (timeCount >= recoveryTime)
+            {
+                isHitting = false;
+                timeCount = 0;
+            }
+        }
     }
 
     #region Moviment
@@ -96,5 +111,14 @@ public class PlayerAnim : MonoBehaviour
     public void OnHammeringEnded()
     {
         anim.SetBool("hammering", false);
+    }
+
+    public void OnHit()
+    {
+        if (!isHitting)
+        {
+            anim.SetTrigger("hit");
+            isHitting = true;
+        }
     }
 }
