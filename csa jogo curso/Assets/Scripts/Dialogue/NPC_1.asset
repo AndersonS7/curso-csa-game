@@ -16,20 +16,20 @@ MonoBehaviour:
   speakerSprite: {fileID: 0}
   sentence: 
   dialogues:
-  - actorName: 
-    profile: {fileID: 0}
+  - actorName: Anna
+    profile: {fileID: 21300000, guid: d5e4d9ff5669be74fb47d16afeff71af, type: 3}
     sentence:
-      portuguese: "Ol\xE1 forasteirio"
+      portuguese: "Ol\xE1"
       english: hello outsider
       spanish: hola forastero
-  - actorName: 
-    profile: {fileID: 0}
+  - actorName: Jonh
+    profile: {fileID: -6826285529842234056, guid: b01159804d23276428b22023e11ffdec, type: 3}
     sentence:
-      portuguese: "Como voc\xEA est\xE1?"
-      english: How are you?
-      spanish: "\xBFC\xF3mo est\xE1s?"
-  - actorName: 
-    profile: {fileID: 0}
+      portuguese: "Ol\xE1, tudo bem?"
+      english: Hello, How are you?
+      spanish: "\xBFHola, C\xF3mo est\xE1s?"
+  - actorName: Anna
+    profile: {fileID: 21300000, guid: d5e4d9ff5669be74fb47d16afeff71af, type: 3}
     sentence:
       portuguese: "Se precisa de informa\xE7\xE3o, v\xE1 at\xE9 o lago"
       english: If you need information, go to the lake

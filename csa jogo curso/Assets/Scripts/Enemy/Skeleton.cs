@@ -7,16 +7,20 @@ using UnityEngine.AI;
 public class Skeleton : MonoBehaviour
 {
     [Header("Stats")]
+    public LayerMask layer;
+    public float radius;
     public float totalHealth;
     public float currentHealth;
     public Image heathBar;
-    public bool isDead;
+    
+    [HideInInspector] public bool isDead;
 
     [Header("Components")]
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private AnimationControl animControl;
 
     private Player player;
+    private bool detectPlayer;
 
     void Start()
     {
@@ -28,8 +32,9 @@ public class Skeleton : MonoBehaviour
 
     void Update()
     {
-        if (!isDead)
+        if (!isDead && detectPlayer)
         {
+            agent.isStopped = false;
             agent.SetDestination(player.transform.position);
 
             if (Vector2.Distance(transform.position, player.transform.position) <= agent.stoppingDistance)
@@ -53,5 +58,33 @@ public class Skeleton : MonoBehaviour
                 transform.eulerAngles = new Vector2(0, 180);
             }
         }
+    }
+
+    private void FixedUpdate()
+    {
+        DetectPlayer();
+    }
+
+    public void DetectPlayer()
+    {
+        Collider2D hit = Physics2D.OverlapCircle(transform.position, radius, layer);
+
+        if (hit != null)
+        {
+            //exergou o player
+            detectPlayer = true;
+        }
+        else
+        {
+            //não está vendo o player
+            detectPlayer = false;
+            animControl.PlayerAnim(0);
+            agent.isStopped = true;
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(transform.position, radius);
     }
 }
