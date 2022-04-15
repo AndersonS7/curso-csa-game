@@ -93,7 +93,6 @@ public class Player : MonoBehaviour
             OnDig();
             OnWatering();
         }
-
     }
 
     private void FixedUpdate()
