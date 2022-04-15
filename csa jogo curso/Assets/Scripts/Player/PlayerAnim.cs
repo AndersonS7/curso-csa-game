@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class PlayerAnim : MonoBehaviour
 {
+    [Header("Attack Settings")]
+    [SerializeField] private Transform attackPoint;
+    [SerializeField] private float radius;
+    [SerializeField] private LayerMask enemyLayer;
+
     private Player player;
     private Animator anim;
 
@@ -89,6 +94,27 @@ public class PlayerAnim : MonoBehaviour
             anim.SetInteger("transition", 2);
         }
     }
+    #endregion
+
+    #region Attack
+
+    public void OnAttack()
+    {
+        Collider2D hit = Physics2D.OverlapCircle(attackPoint.position, radius, enemyLayer);
+
+        if (hit != null)
+        {
+            //ataque do inimigo
+            hit.GetComponentInChildren<AnimationControl>().OnHit(); //Pega o objeto do elemento FILHO
+        }
+    }
+
+    //gismo
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(attackPoint.position, radius);
+    }
+
     #endregion
 
     public void OnCastingStarted()
