@@ -20,6 +20,7 @@ public class SlotFarm : MonoBehaviour
     [SerializeField] private int waterAmount; //total de água necessária para criar uma cenoura
 
     [SerializeField] private bool detecting;
+    private bool isPlayer;// verdadeiro quando o player enconta na cenoura
 
     private int initialDigAmount;
     private float currentWater;
@@ -53,7 +54,7 @@ public class SlotFarm : MonoBehaviour
                 plantedCarrot = true;
             }
 
-            if (Input.GetKeyDown(KeyCode.E) && plantedCarrot)
+            if (Input.GetKeyDown(KeyCode.E) && plantedCarrot && isPlayer)
             {
                 audioSorce.PlayOneShot(carrotSFX);
                 spriteRenderer.sprite = hole;
@@ -86,6 +87,11 @@ public class SlotFarm : MonoBehaviour
         {
             detecting = true;
         }
+
+        if (collision.CompareTag("Player"))
+        {
+            isPlayer = true;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -93,6 +99,11 @@ public class SlotFarm : MonoBehaviour
         if (collision.CompareTag("Water"))
         {
             detecting = false;
+        }
+
+        if (collision.CompareTag("Player"))
+        {
+            isPlayer = false;
         }
     }
 }
