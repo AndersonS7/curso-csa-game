@@ -123,7 +123,7 @@ public class Player : MonoBehaviour
 
             if (isWatering)
             {
-                playerItens.currentWater -= 0.01f;
+                playerItens.currentWater -= 0.1f;
             }
         }
         else
